@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="clothes.js"></script>
+    <style>
+      
+
+        .cart-title{
+            margin-left:600px;
+            margin-top: -60px;
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+
+        .cart-box{
+            display: grid;
+            grid-template-columns: 15% 50%;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .detail-box{
+            margin-top: -100px;
+            margin-left: -30px;
+        }
+
+        .total{
+            margin-right: 800px;
+            margin-top: 1.5rem;
+            
+        }
+        .btn-buy{
+            
+            
+            padding:18px;
+            background-color: orange;
+            color: white;
+            font-size: 15px;
+            border: none;
+            font-weight: 820;
+            cursor: pointer;
+        }
+        .btn-buy:hover{
+            background-color: black;
+        }
+        .cart-remove{
+            color: red;
+            font-size: 30px;
+            margin-left: 360px;
+            margin-top:130px
+            ;
+        }
+    </style> 
+</head>
+<body>
+    <div class="addtocart">
+        
+        <a href="clothes.html"> <img src="close.png" alt=""></a>
+        
+        <h2 class="cart-title"> Your Cart</h2>
+        <div class="cart-content">  
+            
+            <div class="cart-box">
+                <img src="image16.jpeg" alt="" class="cart-img" width="200px" height="300px">
+                <div class="detail-box">
+                    <div class="cart-product-title" style="font-size: 30px; text-transform: uppercase;">Women kurta</div>
+                    <div class="cart-price" style="font-size: 20px;">$699</div><br>
+                    <input type="number" value="1" class="cart-quantity" style="width: 50px; font-size: 20px; outline-color: red;"><br><br>
+                    <button type="button" class="btn-buy">Buy Now</button><br>
+                    <i class='bx bx-trash cart-remove' ></i>
+                 </div>
+                
+            </div>
+         </div>
+         <hr style="width:40%; float: left;margin-top: 1rem;">
+         <div class="total">
+            
+            <div class="total-title" style="margin-top: 1rem;font-size:25px; font-weight:800;">TOTAL:</div>
+            <div class="total-price" style="margin-top: 1rem;font-size:25px;">$0</div>
+            
+        </div>
+
+        
+        
+   
+    
+
+    </div>
+   
+</body>
+</html>
