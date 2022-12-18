@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html >
+<head>
+    
+    <script src="https://kit.fontawesome.com/5b07021861.js" crossorigin="anonymous"></script>  
+</head>
+
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'poppins',sans-serif;
+            font-size: 18px;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .header{
+            height: 80px;
+            width: 70%;
+            background-color: goldenrod;
+            border-radius: 3px;
+            margin: 30px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+        .header .logo{
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+        .cart{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+        }
+        .fa-solid{
+            color: goldenrod;
+        }
+        .cart p{
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background-color: goldenrod;
+            color: white;
+        }
+        .container{
+            display: flex;
+            width: 70%;
+            margin-bottom: 30px;
+        }
+        #root{
+            width: 60%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 20px;
+        }
+        .sidebar{
+            width:40%;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-left: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+        .head{
+            background-color: goldenrod;
+            border-radius: 3px;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .foot{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0px;
+            padding: 10px 0px;
+            border-top: 1px solid #333;
+        }
+        .buybutton{
+            text-decoration: none;
+            padding: 10px;
+            background-color: goldenrod;
+            color: white;
+            border-radius: 6px;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid goldenrod;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .img-box{
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .images{
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .bottom{
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 110px;
+        }
+        h2{
+            font-size: 20px;
+            color: red;
+        }
+        button{
+            width: 100%;
+            position: relative;
+            border: none;
+            border-radius: 5px;
+            background-color: goldenrod;
+            padding: 7px 25px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover{
+            background-color: #333;
+        }
+        .cart-item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: white;
+            border-bottom: 1px solid #aaa;
+            border-radius: 3px;
+            margin: 10px 10px;
+        }
+        .row-img{
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            border: 1px solid goldenrod;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rowing{
+            max-width: 43px;
+            max-height: 43px;
+            border-radius: 50%;
+        }
+        .fa-trash:hover{
+            cursor: pointer;
+            color: #333;
+        }
+</style>
+    
+<body>
+    <div class="header">
+        <p class="logo">CLOTHES</p>
+        <div class="cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p id="count">0</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+            <div class="head"><p>My Cart</p></div>
+            <div id="cartItem">your Cart Is Empty</div>
+            <div class="foot">
+                <h3>Total</h3>
+                <h2 id="total">$ 0.00</h2>
+                
+            </div>
+            <a href="#" class="buybutton">Buy Now</a>
+        </div>
+        
+    </div>
+
+
+    <script >
+        const product=[
+            {
+                id:0,
+                Image:'image1.jpeg',
+                title:'Cotton kurta',
+                price:449,
+            },
+            {
+                id:1,
+                Image:'image2.jpeg',
+                title:'Sports shirt',
+                price:449,
+            },
+            {
+                id:2,
+                Image:'image3.jpeg',
+                title:'Hooded shirt',
+                price:449,
+            },
+            {
+                id:3,
+                Image:'image4.jpeg',
+                title:'Kurta set',
+                price:449,
+            },
+            {
+                id:4,
+                Image:'image5.jpeg',
+                title:'Neck Sweater',
+                price:449,
+            },
+            {
+                id:5,
+                Image:'image6.jpeg',
+                title:'Neck Sweater',
+                price:449,
+            },
+            {
+                id:6,
+                Image:'image7.jpeg',
+                title:'Women kurta',
+                price:449,
+            },
+            {
+                id:7,
+                Image:'image8.jpeg',
+                title:'Women kurta',
+                price:449,
+            },
+            {
+                id:8,
+                Image:'image9.jpeg',
+                title:'Women kurta',
+                price:449,
+            },
+            {
+                id:9,
+                Image:'image10.jpeg',
+                title:'Viscose Rayon Women kurta',
+                price:449,
+            },
+            {
+                id:10,
+                Image:'image11.jpeg',
+                title:'Sharara set',
+                price:449,
+            },
+            {
+                id:11,
+                Image:'image12.jpeg',
+                title:'Women kurta set',
+                price:449,
+            },
+            {
+                id:12,
+                Image:'image13.jpeg',
+                title:'kurta',
+                price:449,
+            },
+            {
+                id:13,
+                Image:'image14.jpeg',
+                title:'Women kurta ',
+                price:449,
+            },
+            {
+                id:14,
+                Image:'image15.jpeg',
+                title:'Lehenga & crop top',
+                price:449,
+            },
+            {
+                id:15,
+                Image:'image16.jpeg',
+                title:'Women kurta set',
+                price:449,
+            },
+            {
+                id:16,
+                Image:'image17.jpeg',
+                title:'Women blue top',
+                price:449,
+            },
+            {
+                id:17,
+                Image:'image18.jpeg',
+                title:'Crop top',
+                price:449,
+            },
+            {
+                id:18,
+                Image:'image19.jpeg',
+                title:'Collar fornal shirt',
+                price:449,
+            },
+            {
+                id:19,
+                Image:'image20.jpeg',
+                title:'Hooded shirt',
+                price:449,
+            },
+            {
+                id:20,
+                Image:'image21.jpeg',
+                title:'White jeans',
+                price:599,
+            },
+            {
+                id:21,
+                Image:'image22.jpeg',
+                title:'Blue shirt',
+                price:259,
+            },
+            {
+                id:22,
+                Image:'image23.jpeg',
+                title:'Men shirt',
+                price:209,
+            }
+        ]
+
+        const categories=[...new Set(product.map((item)=>{return item}))]
+
+        let i=0;
+        document.getElementById('root').innerHTML=categories.map((item)=>
+        {
+            var {Image,title,price}=item;
+            return(
+                `<div class="box">
+                    <div class="img-box">
+                        <img class="images" src=${Image}></img>
+                    </div>
+                <div class="bottom">
+                    <p>${title}</p>
+                    <h2>$ ${price}.00</h2>`+
+                    "<button onclick='addtocart("+(i++)+")'> Add to Cart</button>"+
+                `</div>
+                </div>`
+            )
+        }
+        ).join('')
+
+        var cart=[]
+
+        function addtocart(a){
+            cart.push({...categories[a]})
+            displaycart()
+        }
+
+        function deleteElement(a){
+            cart.splice(a,1);
+            displaycart();
+        }
+
+        function displaycart(a){
+            let j=0; total=0;
+            document.getElementById("count").innerHTML=cart.length
+            if(cart.length==0){
+                document.getElementById('cartItem').innerHTML="Your Cart Is Empty";
+                document.getElementById("total").innerHTML="$"+0+".00"
+            }else{
+                document.getElementById('cartItem').innerHTML=cart.map((items)=>{
+                var {Image,title,price}=items
+                total=total+price;
+                document.getElementById("total").innerHTML="$"+total+".00"
+                return(
+                    `<div class="cart-item">
+                        <div class="row-img">
+                            <img class="rowing" src=${Image}></img>
+                        </div>
+                        <p style='font-size:12px;'>${title}</p>
+                        <h2 style='font-size:15px;'>$ ${price}.00</h2>`+
+                        "<i class='fa-solid fa-trash' onclick=deleteElement("+(j++)+")'></i></div>"
+                );
+            }).join('');
+        }
+        }
+    </script>
+
+
+</body>
+</html>
